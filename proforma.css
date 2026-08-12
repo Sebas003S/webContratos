@@ -1,0 +1,1336 @@
+/* =========================================================
+   GENERAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+.pf-page {
+    width: 100%;
+    padding: 35px 20px 60px;
+}
+
+
+.pf-container {
+    width: 100%;
+    max-width: 1050px;
+
+    margin: 0 auto;
+
+    padding: 35px;
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.10);
+
+    color: #171717;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+
+/* =========================================================
+   CABECERA
+========================================================= */
+
+.pf-document-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 2px solid #222;
+}
+
+
+.pf-document-title h2 {
+    margin: 0;
+
+    font-size: 28px;
+
+    letter-spacing: 1px;
+}
+
+
+.pf-document-title p {
+    margin: 6px 0 0;
+
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+.pf-header-logo {
+    width: 150px;
+    height: 90px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+.pf-header-logo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+
+/* =========================================================
+   INFORMACIÓN
+========================================================= */
+
+.pf-info {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.1fr)
+        minmax(170px, 0.8fr)
+        minmax(0, 1.15fr);
+
+    gap: 35px;
+
+    padding: 28px 0;
+}
+
+
+.pf-info-block {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    min-width: 0;
+}
+
+
+.pf-info h3 {
+    margin: 0 0 8px;
+
+    font-size: 14px;
+}
+
+
+.pf-info-block label {
+    margin-top: 3px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.pf-info-block input {
+    width: 100%;
+
+    min-width: 0;
+
+    padding: 7px 3px;
+
+    border: none;
+
+    border-bottom: 1px solid #ccc;
+
+    border-radius: 0;
+
+    background: transparent;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    color: #222;
+}
+
+
+.pf-info-block input:focus {
+    border-bottom-color: #333;
+}
+
+
+
+/* =========================================================
+   DATOS EMPRESA
+========================================================= */
+
+.pf-company {
+    min-width: 0;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    overflow-wrap: break-word;
+}
+
+
+.pf-company h3 {
+    margin: 0 0 8px;
+
+    font-size: 15px;
+}
+
+
+.pf-company p {
+    margin: 3px 0;
+}
+
+
+
+/* =========================================================
+   TABLA
+========================================================= */
+
+.pf-table-section {
+    width: 100%;
+}
+
+
+.pf-table-responsive {
+    width: 100%;
+
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+
+.pf-table {
+    width: 100%;
+
+    min-width: 720px;
+
+    border-collapse: collapse;
+
+    table-layout: fixed;
+}
+
+
+.pf-table thead {
+    border-top: 2px solid #222;
+
+    border-bottom: 2px solid #222;
+}
+
+
+.pf-table th {
+    padding: 11px 7px;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.pf-table td {
+    padding: 5px;
+
+    border-bottom: 1px solid #eee;
+
+    vertical-align: middle;
+}
+
+
+.pf-table tbody tr:nth-child(even) {
+    background: #f7f7f7;
+}
+
+
+.pf-table input {
+    width: 100%;
+
+    min-width: 0;
+
+    padding: 10px 6px;
+
+    border: none;
+
+    border-radius: 0;
+
+    outline: none;
+
+    background: transparent;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    color: #222;
+}
+
+
+.pf-table input:focus {
+    background: #fafafa;
+
+    box-shadow:
+        inset 0 -1px 0 #777;
+}
+
+
+
+/* COLUMNAS */
+
+.pf-table th:nth-child(1) {
+    width: 39%;
+}
+
+
+.pf-table th:nth-child(2) {
+    width: 9%;
+}
+
+
+.pf-table th:nth-child(3) {
+    width: 14%;
+}
+
+
+.pf-table th:nth-child(4) {
+    width: 13%;
+}
+
+
+.pf-table th:nth-child(5) {
+    width: 16%;
+}
+
+
+.pf-table th:nth-child(6) {
+    width: 9%;
+}
+
+
+
+.totalFila {
+    text-align: right;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+
+/* =========================================================
+   BOTONES TABLA
+========================================================= */
+
+.pf-add-btn {
+    margin-top: 14px;
+
+    padding: 9px 15px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 7px;
+
+    background: white;
+
+    color: #222;
+
+    cursor: pointer;
+}
+
+
+.pf-add-btn:hover {
+    background: #f2f2f2;
+}
+
+
+.pf-delete-btn {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: auto;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #eee;
+
+    color: #555;
+
+    cursor: pointer;
+}
+
+
+.pf-delete-btn:hover {
+    background: #ffdede;
+
+    color: #b60000;
+}
+
+
+
+/* =========================================================
+   PARTE INFERIOR
+========================================================= */
+
+.pf-bottom {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(300px, 370px);
+
+    gap: 60px;
+
+    margin-top: 30px;
+}
+
+
+
+/* =========================================================
+   PAGO / COMENTARIOS
+========================================================= */
+
+.pf-payment {
+    min-width: 0;
+}
+
+
+.pf-payment h3 {
+    margin: 0 0 9px;
+
+    font-size: 13px;
+}
+
+
+.pf-comments-title {
+    margin-top: 25px !important;
+}
+
+
+.pf-payment select {
+    width: 230px;
+
+    max-width: 100%;
+
+    padding: 9px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 6px;
+
+    background: white;
+
+    font-family: inherit;
+}
+
+
+.pf-payment textarea {
+    width: 100%;
+
+    min-height: 100px;
+
+    padding: 10px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 6px;
+
+    resize: vertical;
+
+    font-family: inherit;
+
+    font-size: 13px;
+}
+
+
+
+/* =========================================================
+   TOTALES
+========================================================= */
+
+.pf-totals {
+    width: 100%;
+
+    min-width: 0;
+}
+
+
+.pf-total-row {
+    min-height: 42px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        140px;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border-bottom: 1px solid #ddd;
+
+    font-size: 13px;
+}
+
+
+.pf-total-row strong {
+    text-align: right;
+
+    white-space: nowrap;
+}
+
+
+
+/* INPUT DE MONEDA */
+
+.pf-money-input {
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    overflow: hidden;
+
+    background: #fff;
+}
+
+
+.pf-money-input span {
+    padding-left: 9px;
+
+    color: #555;
+
+    font-size: 12px;
+}
+
+
+.pf-money-input input {
+    width: 100%;
+
+    min-width: 0;
+
+    padding: 8px 7px;
+
+    border: none;
+
+    outline: none;
+
+    text-align: right;
+
+    background: transparent;
+
+    font-family: inherit;
+}
+
+
+
+/* TOTAL */
+
+.pf-grand-total {
+    margin-top: 10px;
+
+    padding: 9px 10px;
+
+    border: 2px solid #222;
+
+    font-size: 17px;
+}
+
+
+.pf-grand-total strong {
+    font-size: 20px;
+}
+
+
+
+/* =========================================================
+   ACCIONES
+========================================================= */
+
+.pf-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 35px;
+}
+
+
+.pf-actions button {
+    min-height: 43px;
+
+    padding: 11px 18px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+
+
+/* LIMPIAR */
+
+.pf-clear-btn {
+    border: 1px solid #ccc;
+
+    background: white;
+
+    color: #333;
+}
+
+
+.pf-clear-btn:hover {
+    background: #eee;
+}
+
+
+
+/* PDF */
+
+.pf-pdf-btn {
+    border: none;
+
+    background: #b3261e;
+
+    color: white;
+}
+
+
+.pf-pdf-btn:hover {
+    background: #8f1d17;
+}
+
+
+
+/* WHATSAPP */
+
+.pf-whatsapp-btn {
+    border: none;
+
+    background: #25d366;
+
+    color: white;
+}
+
+
+.pf-whatsapp-btn:hover {
+    background: #1eaf55;
+}
+
+
+.pf-whatsapp-btn:disabled,
+.pf-pdf-btn:disabled {
+    opacity: .65;
+
+    cursor: wait;
+}
+
+
+
+/* =========================================================
+   CELULARES / TABLETS
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .pf-page {
+        padding: 15px 8px 45px;
+    }
+
+
+    .pf-container {
+        width: 100%;
+
+        padding: 20px 14px;
+
+        border-radius: 10px;
+    }
+
+
+    /* CABECERA */
+
+    .pf-document-header {
+        gap: 12px;
+    }
+
+
+    .pf-document-title h2 {
+        font-size: 22px;
+    }
+
+
+    .pf-document-title p {
+        font-size: 12px;
+    }
+
+
+    .pf-header-logo {
+        width: 100px;
+
+        height: 65px;
+    }
+
+
+    /* DATOS */
+
+    .pf-info {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        padding: 22px 0;
+    }
+
+
+    /* EVITA ZOOM EN IOS */
+
+    .pf-info input,
+    .pf-table input,
+    .pf-money-input input,
+    .pf-payment select,
+    .pf-payment textarea {
+        font-size: 16px;
+    }
+
+
+    /* TABLA */
+
+    .pf-table-responsive {
+        overflow-x: auto;
+    }
+
+
+    .pf-table {
+        min-width: 690px;
+    }
+
+
+    /* INFERIOR */
+
+    .pf-bottom {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+
+    .pf-totals {
+        width: 100%;
+    }
+
+
+    /* BOTONES */
+
+    .pf-actions {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+
+    .pf-actions button {
+        width: 100%;
+
+        min-height: 48px;
+    }
+
+}
+
+
+
+/* =========================================================
+   CELULARES MUY PEQUEÑOS
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .pf-page {
+        padding-left: 5px;
+
+        padding-right: 5px;
+    }
+
+
+    .pf-container {
+        padding-left: 10px;
+
+        padding-right: 10px;
+    }
+
+
+    .pf-document-title h2 {
+        font-size: 20px;
+    }
+
+
+    .pf-header-logo {
+        width: 85px;
+
+        height: 55px;
+    }
+
+
+    .pf-total-row {
+        grid-template-columns:
+            minmax(0, 1fr)
+            125px;
+    }
+
+}
+
+
+
+/* =========================================================
+   PDF - CONTENEDOR TEMPORAL
+========================================================= */
+
+/*
+ * Este elemento NO es el formulario visible.
+ * JavaScript crea una copia aquí exclusivamente
+ * para generar el PDF.
+ */
+/* =========================================================
+   CONTENEDOR TEMPORAL PARA GENERAR EL PDF
+
+   Existe en el DOM para que html2pdf pueda leerlo,
+   pero queda FUERA DE LA PANTALLA.
+========================================================= */
+
+/* =========================================================
+   CONTENEDOR TEMPORAL DEL PDF
+
+   IMPORTANTE:
+   No moverlo a -10000px porque html2canvas puede
+   generar el PDF desplazado y cortado.
+========================================================= */
+
+/* =========================================================
+   CLON TEMPORAL PARA GENERAR PDF
+========================================================= */
+
+.pf-pdf-render-root {
+
+    position: fixed !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 794px !important;
+    min-width: 794px !important;
+    max-width: 794px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: #ffffff !important;
+
+    overflow: visible !important;
+
+    pointer-events: none !important;
+
+    transform: none !important;
+
+    /*
+     * IMPORTANTE:
+     * El usuario NO verá el clon.
+     */
+    visibility: hidden !important;
+}
+
+
+/* =========================================================
+   COPIA A4
+========================================================= */
+
+.pf-pdf-clone {
+
+    position: relative !important;
+
+    left: 0 !important;
+    top: 0 !important;
+
+    transform: none !important;
+
+    width: 794px !important;
+    min-width: 794px !important;
+    max-width: 794px !important;
+
+    margin: 0 !important;
+
+    padding: 32px 40px !important;
+
+    border: none !important;
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+
+    background: #ffffff !important;
+
+    color: #111 !important;
+
+    overflow: visible !important;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif !important;
+}
+
+
+/* NO MOSTRAR BOTONES EN PDF */
+
+.pf-pdf-clone .pf-no-pdf {
+    display: none !important;
+}
+
+
+
+/* =========================================================
+   CABECERA A4
+========================================================= */
+
+.pf-pdf-clone .pf-document-header {
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    align-items: center !important;
+
+    justify-content: space-between !important;
+
+    width: 100% !important;
+
+    padding-bottom: 17px !important;
+
+    break-inside: avoid !important;
+
+    page-break-inside: avoid !important;
+}
+
+
+.pf-pdf-clone .pf-document-title h2 {
+    font-size: 25px !important;
+}
+
+
+.pf-pdf-clone .pf-document-title p {
+    font-size: 12px !important;
+}
+
+
+.pf-pdf-clone .pf-header-logo {
+    width: 125px !important;
+
+    height: 75px !important;
+}
+
+
+
+/* =========================================================
+   INFORMACIÓN A4
+========================================================= */
+
+.pf-pdf-clone .pf-info {
+    display: grid !important;
+
+    grid-template-columns:
+        minmax(0, 1.1fr)
+        minmax(150px, .8fr)
+        minmax(0, 1.1fr)
+        !important;
+
+    gap: 25px !important;
+
+    width: 100% !important;
+
+    padding: 22px 0 !important;
+
+    break-inside: avoid !important;
+
+    page-break-inside: avoid !important;
+}
+
+
+.pf-pdf-clone .pf-info-block {
+    gap: 6px !important;
+}
+
+
+.pf-pdf-clone .pf-info h3,
+.pf-pdf-clone .pf-company h3 {
+    font-size: 12px !important;
+}
+
+
+.pf-pdf-clone .pf-info-block label {
+    font-size: 10px !important;
+}
+
+
+.pf-pdf-clone .pf-company {
+    font-size: 10.5px !important;
+
+    line-height: 1.45 !important;
+}
+
+
+
+/* CAMPOS CONVERTIDOS A TEXTO */
+
+.pf-static-field {
+    width: 100%;
+
+    min-height: 23px;
+
+    padding: 5px 2px;
+
+    border-bottom: 1px solid #bbb;
+
+    font-size: 11px;
+
+    color: #222;
+
+    overflow-wrap: anywhere;
+}
+
+
+
+/* =========================================================
+   TABLA A4
+========================================================= */
+
+.pf-pdf-clone .pf-table-responsive {
+    width: 100% !important;
+
+    overflow: visible !important;
+}
+
+
+.pf-pdf-clone .pf-table {
+    width: 100% !important;
+
+    min-width: 0 !important;
+    max-width: 100% !important;
+
+    table-layout: fixed !important;
+
+    border-collapse: collapse !important;
+}
+
+
+.pf-pdf-clone .pf-table th {
+    padding: 8px 4px !important;
+
+    font-size: 10.5px !important;
+}
+
+
+.pf-pdf-clone .pf-table td {
+    padding: 7px 4px !important;
+
+    font-size: 10.5px !important;
+}
+
+
+
+/*
+ * La columna de eliminar ya fue eliminada,
+ * por eso estas CINCO columnas suman 100%.
+ */
+
+.pf-pdf-clone .pf-table th:nth-child(1),
+.pf-pdf-clone .pf-table td:nth-child(1) {
+    width: 43% !important;
+}
+
+
+.pf-pdf-clone .pf-table th:nth-child(2),
+.pf-pdf-clone .pf-table td:nth-child(2) {
+    width: 10% !important;
+}
+
+
+.pf-pdf-clone .pf-table th:nth-child(3),
+.pf-pdf-clone .pf-table td:nth-child(3) {
+    width: 15% !important;
+}
+
+
+.pf-pdf-clone .pf-table th:nth-child(4),
+.pf-pdf-clone .pf-table td:nth-child(4) {
+    width: 14% !important;
+}
+
+
+.pf-pdf-clone .pf-table th:nth-child(5),
+.pf-pdf-clone .pf-table td:nth-child(5) {
+    width: 18% !important;
+}
+
+
+.pf-static-table-field {
+    display: block;
+
+    width: 100%;
+
+    min-height: 18px;
+
+    padding: 2px;
+
+    font-size: 10.5px;
+
+    overflow-wrap: anywhere;
+}
+
+
+.pf-pdf-clone .totalFila {
+    text-align: right !important;
+
+    font-size: 10.5px !important;
+
+    white-space: nowrap !important;
+}
+
+
+.pf-pdf-clone .pf-table tr {
+    break-inside: avoid !important;
+
+    page-break-inside: avoid !important;
+}
+
+
+
+/* =========================================================
+   PARTE INFERIOR A4
+========================================================= */
+
+.pf-pdf-clone .pf-bottom {
+    display: grid !important;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        300px
+        !important;
+
+    gap: 45px !important;
+
+    width: 100% !important;
+
+    margin-top: 25px !important;
+
+    overflow: visible !important;
+
+    break-inside: avoid !important;
+}
+
+
+.pf-pdf-clone .pf-payment h3 {
+    font-size: 11px !important;
+}
+
+
+.pf-static-select {
+    display: block;
+
+    width: 100%;
+
+    max-width: 190px;
+
+    min-height: 28px;
+
+    padding: 7px 0;
+
+    font-size: 11px;
+}
+
+
+.pf-static-textarea {
+    width: 100%;
+
+    min-height: 65px;
+
+    padding: 7px 0;
+
+    font-size: 10.5px;
+
+    line-height: 1.4;
+
+    white-space: pre-wrap;
+
+    overflow-wrap: anywhere;
+}
+
+
+
+/* =========================================================
+   TOTALES A4
+========================================================= */
+
+.pf-pdf-clone .pf-totals {
+    width: 300px !important;
+
+    max-width: 300px !important;
+}
+
+
+.pf-pdf-clone .pf-total-row {
+    display: grid !important;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        115px
+        !important;
+
+    min-height: 32px !important;
+
+    gap: 8px !important;
+
+    font-size: 11px !important;
+}
+
+
+.pf-pdf-clone .pf-money-input {
+    display: flex !important;
+
+    justify-content: flex-end !important;
+
+    align-items: center !important;
+
+    border: none !important;
+
+    background: transparent !important;
+
+    overflow: visible !important;
+}
+
+
+.pf-pdf-clone .pf-money-input > span:first-child {
+    margin-right: 4px;
+
+    padding: 0 !important;
+
+    font-size: 10px !important;
+}
+
+
+.pf-static-money {
+    display: inline-block;
+
+    min-width: 55px;
+
+    text-align: right;
+
+    font-size: 11px;
+}
+
+
+.pf-pdf-clone .pf-grand-total {
+    margin-top: 8px !important;
+
+    padding: 8px !important;
+
+    border: 2px solid #222 !important;
+
+    font-size: 14px !important;
+}
+
+
+.pf-pdf-clone .pf-grand-total strong {
+    font-size: 16px !important;
+}
+
+
+
+/* =========================================================
+   IMPRESIÓN NORMAL
+========================================================= */
+
+@media print {
+
+    .bar,
+    #snowCanvas,
+    #popups-root,
+    .pf-no-pdf {
+        display: none !important;
+    }
+
+
+    .pf-page {
+        padding: 0 !important;
+    }
+
+
+    .pf-container {
+        width: 100% !important;
+
+        max-width: none !important;
+
+        margin: 0 !important;
+
+        padding: 20px !important;
+
+        border: none !important;
+
+        border-radius: 0 !important;
+
+        box-shadow: none !important;
+    }
+
+}

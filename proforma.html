@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Proforma — La Marquesina</title>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <!-- FAVICON -->
+  <link
+    rel="icon"
+    href="./img/logo.png"
+  >
+
+  <!-- CSS GENERAL DEL SISTEMA -->
+  <link
+    href="./style.css"
+    rel="stylesheet"
+  >
+
+  <!-- CSS DE PROFORMA -->
+  <link
+    href="./proforma.css"
+    rel="stylesheet"
+  >
+
+  <!-- FONT AWESOME -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
+
+  <!-- SUPABASE -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+  </script>
+
+  <!-- HTML2PDF -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">
+  </script>
+
+  <!-- LÓGICA GENERAL -->
+  <script
+    defer
+    src="./script.js">
+  </script>
+
+  <!-- POPUPS -->
+  <script
+    defer
+    src="./popups-loader.js">
+  </script>
+
+  <!-- LÓGICA PROFORMA -->
+  <script
+    defer
+    src="./proforma.js">
+  </script>
+
+</head>
+
+
+<body
+  class="bg"
+  onload="protectPage();"
+>
+
+  <!-- NIEVE -->
+  <!-- ELIMINAR DESPUÉS DE NAVIDAD -->
+  <canvas id="snowCanvas"></canvas>
+
+
+  <!-- =====================================================
+       ENCABEZADO GENERAL
+  ====================================================== -->
+
+  <header class="bar">
+
+
+    <div class="brand">
+
+      <img
+        src="./img/logo.png"
+        alt="La Marquesina"
+        class="logo"
+      >
+
+
+      <a
+        href="dashboard.html"
+        class="home-btn"
+        data-page="dashboard.html"
+      >
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>Inicio</span>
+
+      </a>
+
+    </div>
+
+
+    <nav class="nav-panel">
+
+
+      <a
+        href="redactar.html"
+        class="nav-btn"
+        data-page="redactar.html"
+      >
+
+        <i class="fa-solid fa-file-pen"></i>
+
+        <span>Redactar</span>
+
+      </a>
+
+
+      <a
+        href="ver.html"
+        class="nav-btn"
+        data-page="ver.html"
+      >
+
+        <i class="fa-solid fa-folder-open"></i>
+
+        <span>Ver Contratos</span>
+
+      </a>
+
+
+      <a
+        href="mensajes.html"
+        class="nav-btn"
+        data-page="mensajes.html"
+      >
+
+        <i class="fa-solid fa-paper-plane"></i>
+
+        <span>Enviar Mensajes</span>
+
+      </a>
+
+
+      <a
+        href="recetas.html"
+        class="nav-btn"
+        data-page="recetas.html"
+      >
+
+        <i class="fa-solid fa-utensils"></i>
+
+        <span>Recetas</span>
+
+      </a>
+
+
+      <a
+        href="proforma.html"
+        class="nav-btn"
+        data-page="proforma.html"
+      >
+
+        <i class="fa-solid fa-file-invoice-dollar"></i>
+
+        <span>Proforma</span>
+
+      </a>
+
+
+    </nav>
+
+
+    <button
+      type="button"
+      class="logout-btn"
+      onclick="openLogoutPopup()"
+    >
+
+      <i class="fa-solid fa-right-from-bracket"></i>
+
+      <span>Cerrar sesión</span>
+
+    </button>
+
+  </header>
+
+
+  <!-- POPUPS -->
+
+  <div id="popups-root"></div>
+
+
+  <!-- =====================================================
+       PROFORMA
+  ====================================================== -->
+
+  <main class="pf-page">
+
+
+    <div
+      class="pf-container"
+      id="proformaPDF"
+    >
+
+
+      <!-- =================================================
+           CABECERA DE LA PROFORMA
+      ================================================== -->
+
+      <section class="pf-document-header">
+
+
+        <div class="pf-document-title">
+
+          <h2>PROFORMA</h2>
+
+          <p>
+            Servicios de Catering & Barman
+          </p>
+
+        </div>
+
+
+        <div class="pf-header-logo">
+
+          <img
+            src="./img/logo.png"
+            alt="La Marquesina Catering"
+          >
+
+        </div>
+
+
+      </section>
+
+
+      <!-- =================================================
+           DATOS
+      ================================================== -->
+
+      <section class="pf-info">
+
+
+        <!-- CLIENTE -->
+
+        <div class="pf-info-block">
+
+
+          <h3>
+            Datos del cliente
+          </h3>
+
+
+          <input
+            type="text"
+            id="cliente"
+            placeholder="Nombre / Razón social"
+          >
+
+
+          <input
+            type="text"
+            id="documento"
+            placeholder="DNI / RUC"
+          >
+
+
+          <input
+            type="text"
+            id="telefonoCliente"
+            placeholder="Teléfono / WhatsApp"
+          >
+
+
+          <input
+            type="text"
+            id="direccionCliente"
+            placeholder="Dirección"
+          >
+
+
+        </div>
+
+
+        <!-- PROFORMA -->
+
+        <div class="pf-info-block">
+
+
+          <label for="numeroProforma">
+            N.º Proforma
+          </label>
+
+
+          <input
+            type="text"
+            id="numeroProforma"
+            value="0001"
+          >
+
+
+          <label for="fecha">
+            Fecha
+          </label>
+
+
+          <input
+            type="date"
+            id="fecha"
+          >
+
+
+          <label for="fechaEvento">
+            Fecha del evento
+          </label>
+
+
+          <input
+            type="date"
+            id="fechaEvento"
+          >
+
+
+        </div>
+
+
+        <!-- EMPRESA -->
+
+        <div class="pf-company">
+
+
+          <h3>
+            La Marquesina Catering
+          </h3>
+
+
+          <p>
+            <strong>RUC:</strong>
+            20611125918
+          </p>
+
+
+          <p>
+            <strong>Teléfono:</strong>
+            942 709 363
+          </p>
+
+
+          <p>
+            <strong>Domicilio:</strong>
+          </p>
+
+
+          <p>
+            Cal. Mayor Garcia Rojas<br>
+            Mza. A Lote 1<br>
+            APV. Mirador<br>
+            Junín - Huancayo - Huancayo
+          </p>
+
+
+        </div>
+
+
+      </section>
+
+
+      <!-- =================================================
+           TABLA
+      ================================================== -->
+
+      <section class="pf-table-section">
+
+
+        <div class="pf-table-responsive">
+
+
+          <table class="pf-table">
+
+
+            <thead>
+
+              <tr>
+
+                <th>
+                  Descripción
+                </th>
+
+                <th>
+                  Cant.
+                </th>
+
+                <th>
+                  Precio/u
+                </th>
+
+                <th>
+                  Desc. S/
+                </th>
+
+                <th>
+                  Total
+                </th>
+
+                <th class="pf-no-pdf"></th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody id="detalle">
+
+
+              <tr>
+
+
+                <td>
+
+                  <input
+                    type="text"
+                    class="descripcion"
+                    placeholder="Ej. Servicio de barman"
+                  >
+
+                </td>
+
+
+                <td>
+
+                  <input
+                    type="number"
+                    class="cantidad"
+                    value="1"
+                    min="0"
+                    step="1"
+                    oninput="calcular()"
+                  >
+
+                </td>
+
+
+                <td>
+
+                  <input
+                    type="number"
+                    class="precio"
+                    value="0"
+                    min="0"
+                    step="0.01"
+                    oninput="calcular()"
+                  >
+
+                </td>
+
+
+                <td>
+
+                  <input
+                    type="number"
+                    class="descuentoFila"
+                    value="0"
+                    min="0"
+                    step="0.01"
+                    oninput="calcular()"
+                  >
+
+                </td>
+
+
+                <td class="totalFila">
+
+                  S/ 0.00
+
+                </td>
+
+
+                <td class="pf-no-pdf">
+
+                  <button
+                    type="button"
+                    class="pf-delete-btn"
+                    onclick="eliminarFila(this)"
+                    title="Eliminar"
+                  >
+
+                    <i class="fa-solid fa-trash"></i>
+
+                  </button>
+
+                </td>
+
+
+              </tr>
+
+
+            </tbody>
+
+
+          </table>
+
+
+        </div>
+
+
+        <button
+          type="button"
+          class="pf-add-btn pf-no-pdf"
+          onclick="agregarFila()"
+        >
+
+          <i class="fa-solid fa-plus"></i>
+
+          Agregar servicio
+
+        </button>
+
+
+      </section>
+
+
+      <!-- =================================================
+           PARTE INFERIOR
+      ================================================== -->
+
+      <section class="pf-bottom">
+
+
+        <!-- MÉTODO DE PAGO -->
+
+        <div class="pf-payment">
+
+
+          <h3>
+            Método de pago
+          </h3>
+
+
+          <select id="metodoPago">
+
+            <option value="Efectivo">
+              Efectivo
+            </option>
+
+            <option value="Yape">
+              Yape
+            </option>
+
+            <option value="Plin">
+              Plin
+            </option>
+
+            <option value="Transferencia">
+              Transferencia bancaria
+            </option>
+
+            <option value="Otro">
+              Otro
+            </option>
+
+          </select>
+
+
+          <h3 class="pf-comments-title">
+            Comentarios
+          </h3>
+
+
+          <textarea
+            id="comentarios"
+            placeholder="Detalles adicionales del servicio..."
+          ></textarea>
+
+
+        </div>
+
+
+        <!-- TOTALES -->
+
+        <div class="pf-totals">
+
+
+          <div class="pf-total-row">
+
+            <span>
+              Subtotal
+            </span>
+
+            <strong id="subtotal">
+              S/ 0.00
+            </strong>
+
+          </div>
+
+
+          <div class="pf-total-row">
+
+            <label for="movilidad">
+              Movilidad
+            </label>
+
+            <div class="pf-money-input">
+
+              <span>S/</span>
+
+              <input
+                type="number"
+                id="movilidad"
+                value="0"
+                min="0"
+                step="0.01"
+                oninput="calcular()"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="pf-total-row">
+
+            <label for="otros">
+              Otros
+            </label>
+
+            <div class="pf-money-input">
+
+              <span>S/</span>
+
+              <input
+                type="number"
+                id="otros"
+                value="0"
+                min="0"
+                step="0.01"
+                oninput="calcular()"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="pf-total-row">
+
+            <label for="descuentoGeneral">
+              Descuento
+            </label>
+
+            <div class="pf-money-input">
+
+              <span>S/</span>
+
+              <input
+                type="number"
+                id="descuentoGeneral"
+                value="0"
+                min="0"
+                step="0.01"
+                oninput="calcular()"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="pf-total-row pf-grand-total">
+
+            <span>
+              TOTAL
+            </span>
+
+            <strong id="total">
+              S/ 0.00
+            </strong>
+
+          </div>
+
+
+        </div>
+
+
+      </section>
+
+
+      <!-- =================================================
+           ACCIONES
+      ================================================== -->
+
+      <div class="pf-actions pf-no-pdf">
+
+
+        <button
+          type="button"
+          class="pf-clear-btn"
+          onclick="limpiarProforma()"
+        >
+
+          <i class="fa-solid fa-eraser"></i>
+
+          Limpiar
+
+        </button>
+
+
+        <button
+          type="button"
+          class="pf-pdf-btn"
+          onclick="guardarPDF()"
+        >
+
+          <i class="fa-solid fa-file-pdf"></i>
+
+          Guardar PDF
+
+        </button>
+
+
+        <button
+          type="button"
+          class="pf-whatsapp-btn"
+          onclick="compartirPDF()"
+        >
+
+          <i class="fa-brands fa-whatsapp"></i>
+
+          Enviar PDF
+
+        </button>
+
+
+      </div>
+
+
+    </div>
+
+
+  </main>
+
+
+</body>
+
+</html>
